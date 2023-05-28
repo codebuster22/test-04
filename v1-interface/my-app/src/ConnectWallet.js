@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const ConnectWallet = () => {
-	return <ConnectButton label="Connect" showBalance={false} />;
+  return (
+	<ConnectButton showBalance={false} label="Connect Wallet" accountStatus="address" chainStatus="icon" />
+  );
 };
 
 export default ConnectWallet;

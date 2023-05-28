@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "@rainbow-me/rainbowkit/styles.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import {
+  wagmiConfig,
+  RainbowKitProvider,
+  WagmiConfig,
+  chains,
+  polygonMumbai,
+} from "./configureRainbowkit";
+import { darkTheme } from "@rainbow-me/rainbowkit";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <WagmiConfig client={wagmiConfig}>
+      <RainbowKitProvider
+        chains={chains}
+        initialChain={polygonMumbai}
+        theme={darkTheme()}
+      >
+        <App />
+      </RainbowKitProvider>
+    </WagmiConfig>
   </React.StrictMode>
 );
 
