@@ -72,7 +72,7 @@ contract Vault is ERC4626 {
         require(_checkEpoch(), "VAULT: WITHDRAWAL_WINDOW_NOT_OPEN");
 
         // TODO: address
-        SwapToWithdraw()
+        SwapToWithdraw(address(this))
             .execute(msg.sender, _encodeWithdraw());
     }
 
